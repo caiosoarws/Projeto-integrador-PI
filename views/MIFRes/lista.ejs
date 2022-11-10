@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        ​<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel = "stylesheet" href = "style.css">
+        <link rel = 'icon' type = "image/png" href = "imagens/icon.png"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Home</title>
+</head>
+
+<body>
+
+    <ul>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><i class = "fa fa-fw fa-home"></i>CRIIFS</a>
+            <div class="dropdown-content">
+                <a href="/index">Conheça o CRIIFRS!</a>
+                <a href="/alunos">Registre-se em nosso site!</a>
+                <a href="/cargos">Registre um novo membro efetivo</a>
+            </div>
+        </li>
+            
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-user-plus" aria-hidden="true"></i>TIB</a>
+            <div class="dropdown-content">
+                <a href="/tib">Conheça o TIB!</a>
+                <a href="/inscricaoTIB">Inscreva-se no TIB!</a>
+            </div>
+        </li>
+
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-users" aria-hidden="true"></i>MIFRES</a>
+            <div class="dropdown-content">
+                <a href="/mifres">Conheça o MIFRes!</a>
+                <a href="/inscricaoMIFRES">Inscreva-se no MIFRes!</a>
+                <a href="/comites">Registre um novo comitê!</a>
+            </div>
+        </li>
+    </ul>
+    
+<div class="bannerDoBody">
+    <style>
+    .bannerDoBody {
+        width: auto;
+        height: 1200px;
+        background-size:100%;
+        background-size: cover;
+        background-image: url(https://t4.ftcdn.net/jpg/03/56/89/81/360_F_356898138_lPKCf7C48thhjBTomHXbnn1tzwPr8Bdk.jpg);
+    }
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:#243B2E;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  color:#243B2E;
+  background-color:#a4aaa7;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+
+}
+
+.dropdown-content a:hover {
+  background-color:#cdd8d3;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 500px) {
+  .menu a {
+    float: none;
+    display: block;
+  }
+}
+    </style>
+    <br>
+    
+    <section id = "TIBcadastro">
+        <h2>CADASTROS</h2>
+        <hr><br>
+        
+        <form action = "filtrarAlunoMifres" method = "post">
+            <label for="nome"><p>Nome (use % como caracter coringa)</p></label>
+            <input type="text" name="pesquisa" id="pesquisa" size="30">
+            <input type="submit" class = "btn filtro" id = "filtrar" name="filtrar"><br><br>
+        </form>
+            <form action="excluirAlunoTIB">
+            <input type="submit" class = "button" type = "reset" id="Excluir" name = "Excluir">Excluir</button>
+        </form>
+
+        <input type="submit" class = "button" id = "Atualizar" name="Atualizar">Atualizar</a>
+        
+        <a href="/formMifres">Novo Aluno(a)!</a> &nbsp;
+
+        <!-- 
+            MUDAR
+              |
+              |
+              V
+         -->
+        <table id = "tabelinha">
+            <tr>
+                <th>Nome</th>
+                <th>Escola</th>
+                <th>Ano</th>
+                <th>Telefone</th>
+                <th>Comitê</th>
+                <th>Delegações</th>
+            </tr>
+            <% mifres.forEach((mf, index) => { %>
+                <tr>
+                    <td><%= mf.nome %></td>
+                    <td><%= mf.escola %></td>
+                    <td><%= mf.ano %></td>
+                    <td><%= mf.telefone %></td>
+                    <td><%= mf.comite %></td>
+                    <td><%= mf.delegacao %></td>
+                </tr>
+            <% }) %>
+        </table>
+
+        <!-- 
+             ^
+             |
+             |
+            MUDAR
+         -->
+    </section>
+    
+    <footer class="nav-down">
+        <div class="footer-content">
+            <!--<p>Sinta-se a vontade para nos acompanhar em nossas redes sociais e mandar sugestões/perguntas através dos nosso canais de comunicção!</p>-->
+            <h3>Confira os nossos canais de comunicação!</h3>
+            <ul class="socials">
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google"></i></a></li>
+                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
