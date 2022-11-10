@@ -12,7 +12,7 @@ module.exports = class Membros{
 
     setNome(n) {
         this.nome = n;
-    }rte
+    }
 
     getNome() {
         return this.nome;
