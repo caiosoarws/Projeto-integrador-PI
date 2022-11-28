@@ -31,6 +31,29 @@ create table escolas (
 	PRIMARY KEY(escolas_id)
 );
 
+create table orgaos (
+	orgaos_id int auto_increment,
+    CDH varchar(100),
+    CNUDH varchar(100),
+    ACNUR varchar(100),
+    CSNU varchar(100),
+    OEA varchar(100),
+    OMS varchar(100),
+    AC varchar(100),
+    Gabinete varchar(100),
+    PRIMARY KEY(orgaos_id)
+);
+
+create table comites (
+	comites_id int auto_increment,
+    delegados varchar(45),
+    temas varchar(45),
+    mesas varchar(45),
+    PRIMARY KEY(comites_id),
+    FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id),
+    FOREIGN KEY(orgaos_id) REFERENCES orgaos(orgaos_id)
+);
+
 create table alunos (
 	alunos_id int auto_increment,
 	nome varchar(100),
@@ -45,29 +68,6 @@ create table alunos (
     FOREIGN KEY(comites_id) REFERENCES comites(comites_id)
 );
 
-create table comites (
-	comites_id int auto_increment,
-    delegados varchar(45),
-    temas varchar(45),
-    mesas varchar(45),
-    PRIMARY KEY(comites_id),
-    FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id),
-    FOREIGN KEY(orgaos_id) REFERENCES orgaos(orgaos_id)
-);
-
-create table orgaos (
-	orgaos_id int auto_increment,
-    CDH varchar(100),
-    CNUDH varchar(100),
-    ACNUR varchar(100),
-    CSNU varchar(100),
-    OEA varchar(100),
-    OMS varchar(100),
-    AC varchar(100),
-    Gabinete varchar(100),
-    PRIMARY KEY(orgaos_id),
-    FOREIGN KEY(comites_id) REFERENCES comites(comites_id)
-);
 
 create table MIFRes (
 	alunos_id int auto_increment,

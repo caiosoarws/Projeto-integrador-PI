@@ -1,6 +1,4 @@
 
-
-///////////////////// BASICO ////////////////////////
 const express = require('express');
 const app = express();
 
@@ -50,8 +48,6 @@ app.get('/comites', function (req, res) {
 app.get('/voltar', function(req, res){
 	res.sendFile(__dirname + '/views/TIB.html');
 });
-
-
 
 
 /////////////////////////// FUNÇÕES TIB////////////////////////////
