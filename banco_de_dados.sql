@@ -19,6 +19,7 @@ CREATE TABLE cargos (
     financeiro VARCHAR(45),
     comunicacao VARCHAR(45),
     designerDeSimulacao VARCHAR(45),
+	membros_id int not null,
     PRIMARY KEY (cargos_id),
     FOREIGN KEY (membros_id)
         REFERENCES membros (membros_id)
@@ -49,6 +50,8 @@ create table comites (
     delegados varchar(45),
     temas varchar(45),
     mesas varchar(45),
+	escolas_id int not null,
+	orgaos_id int not null,
     PRIMARY KEY(comites_id),
     FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id),
     FOREIGN KEY(orgaos_id) REFERENCES orgaos(orgaos_id)
@@ -63,37 +66,30 @@ create table alunos (
 	curso varchar(100) NULL,
 	endereco varchar(100),
 	escola varchar(100),
+	escolas_id int not null,
+	comites_id int not null,
 	PRIMARY KEY(alunos_id),
     FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id),
     FOREIGN KEY(comites_id) REFERENCES comites(comites_id)
 );
 
 
-create table MIFRes (
-	alunos_id int auto_increment,
-	nome varchar(100) NOT NULL,
-	escola varchar(100) NOT NULL,
-	ano int (10) NOT NULL,
+create table eventos(
+	id int auto_increment,
+	nome varchar(100) NOT NULL,,
+	ano int (10) acao varchar(100) NOT NULL,NOT NULL,
 	telefone int(9) NOT NULL,
-	comite varchar(50) NOT NULL,
 	delegacao varchar(100) NOT NULL,
 	justificativa varchar(100) NOT NULL,
-	PRIMARY KEY(mifres_id),
+	tipo_id int not null,
+	escolas_id int not null,
+	comites_id int not null,
+	tipo enum("tib","mifres"),
+	PRIMARY KEY(id),
     FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id),
     FOREIGN KEY(comites_id) REFERENCES comites(comites_id)
 );
 
-create table tib (
-	tib_id int auto_increment,
-	nome varchar(100) NOT NULL,
-	contato int(13) NOT NULL,
-	comite varchar (50) NOT NULL,
-	delegacao varchar(100) NOT NULL,
-	justificativa varchar(100) NOT NULL,
-	PRIMARY KEY(tib_id),
-	FOREIGN KEY(comites_id) REFERENCES comites(comites_id),
-	FOREIGN KEY(alunos_id) REFERENCES alunos(alunos_id)
-);
 
 create table alunosMIFRES (
 	alunos_id int auto_increment,
@@ -104,6 +100,8 @@ create table alunosMIFRES (
 	curso varchar(100) NULL,
 	endereco varchar(100),
 	escola varchar(100),
+	escolas_id int not null,
+	comites_id int not null,
 	PRIMARY KEY(alunos_id),
     FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id),
     FOREIGN KEY(comites_id) REFERENCES comites(comites_id)

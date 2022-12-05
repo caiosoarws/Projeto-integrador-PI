@@ -62,14 +62,14 @@ inserir(connection){
         }
     }
 
-    listar(connection, callback) {
-        var sql = "SELECT * FROM ";
+listar(connection, callback) {
+    var sql = "SELECT * FROM ";
     
-        connection.query(sql, function (err, result) {
+    connection.query(sql, function (err, result) {
             if (err) throw err;
-            return callback(result);
-        });    
-      }
+        return callback(result);
+     });    
+    }
 
 
 pesquisar(connection, callback) {
