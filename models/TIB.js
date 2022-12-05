@@ -49,9 +49,9 @@ module.exports = class Tib{
 
 inserir(connection){
     try{
-        var sql = "INSERT INTO tib (nome,contato,comite,delegacao,justificativa) VALUES (?,?,?,?,?)"
+        var sql = "INSERT INTO eventos (nome,telefone,delegacao,justificativa) VALUES (?,?,?,?,?); SELECT LAST_INSERT_ID()"
         
-        connection.query(sql, [this.nome, this.contato, this.comite, this.delegacao, this.justificativa], 
+        connection.query(sql, [this.nome, this.telefone, this.delegacao, this.justificativa], 
             function(err, result) {
                 if(err) throw "teste"
             });

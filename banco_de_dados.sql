@@ -76,19 +76,31 @@ create table alunos (
 
 create table eventos(
 	id int auto_increment,
-	nome varchar(100) NOT NULL,,
-	ano int (10) acao varchar(100) NOT NULL,NOT NULL,
+	nome varchar(100) NOT NULL,
 	telefone int(9) NOT NULL,
 	delegacao varchar(100) NOT NULL,
 	justificativa varchar(100) NOT NULL,
-	tipo_id int not null,
-	escolas_id int not null,
 	comites_id int not null,
-	tipo enum("tib","mifres"),
 	PRIMARY KEY(id),
-    FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id),
     FOREIGN KEY(comites_id) REFERENCES comites(comites_id)
 );
+
+create table mifres(
+	id int auto_increment,
+	escolas_id int not null, 
+	ano varchar(2) not null,
+	evento_id int not null,
+	PRIMARY KEY (id),
+	FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id),
+	FOREIGN KEY(evento_id) REFERENCES eventos(id)
+)
+
+create table tib(       
+	id int auto_increment,
+	evento_id int not null,
+	PRIMARY KEY (id),
+	FOREIGN KEY(evento_id) REFERENCES eventos(id)
+)
 
 
 create table alunosMIFRES (

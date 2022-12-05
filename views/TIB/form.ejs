@@ -257,14 +257,14 @@
                 <th>Justificativa</th>
 
 			<label for="nome">Nome:</label><br>
-			<input type="text" name="nome" id="nome" size="30"><br><br>
+			<input type="text" name="nome" id="nome" size="30" value="<%= tib[0].nome %>"><br><br>
 			
-			<label for="telefone">Contato:</label><br>
-			<input type="text" name="telefone" id="telefone" size="20"><br><br>
+			<label for="contato">Contato:</label><br>
+			<input type="text" name="telefone" id="telefone" size="20" value="<%= tib[0].telefone %>"><br><br>
 
             <label for="comite"></label>
             <select id = "comite" name="comite">
-                <option value = "#">Selecione o seu comitê:</option>
+                <option value = "<%= tib[0].comite %>"></option>
                 <option value = "1">CDH</option>
                 <option value = "2">CDUDH</option>
                 <option value = "3">CSNU</option>

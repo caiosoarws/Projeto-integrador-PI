@@ -8,11 +8,10 @@ module.exports = class Mifres {
         this.nome = "";
         this.escolas = "";
         this.ano = "";
-        this.telefone = "";
+        this.contato = "";
         this.comite = "";
         this.delegacao = "";
         this.justificativa = "";
-        this.tipo = 1;
     }
 
     setNome(nom) {
@@ -66,9 +65,9 @@ module.exports = class Mifres {
 
     inserir(connection) {
         try {
-            var sql = "INSERT INTO MIFRes (nome,escolas,ano,telefone,comite,delegacao,justificativa,tipo) VALUES (?,?,?,?,?,?,?,?)"
+            var sql = "INSERT INTO EVENTOS (nome,escolas,ano,telefone,comite,delegacao,justificativa,tipo) VALUES (?,?,?,?,?,?,?)"
 
-            connection.query(sql, [this.nome, this.escolas, this.ano, this.telefone, this.comite, this.delegacao, this.justificativa, this.tipo],
+            connection.query(sql, [this.nome, this.escolas, this.ano, this.telefone, this.comite, this.delegacao, this.justificativa],
                 function (err, result) {
                     if (err) throw "teste"
                 });
@@ -78,7 +77,6 @@ module.exports = class Mifres {
             throw e;
         }
     }
-}
 
 listar(connection, callback) {
     var sql = "SELECT * FROM ";

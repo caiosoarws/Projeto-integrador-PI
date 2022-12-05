@@ -92,7 +92,7 @@ app.post('/salvarTIB', function (req, res) {
 		var tib = new Tib();
 
 		tib.setNome(req.body.nome);
-		tib.setContato(req.body.contato);
+		tib.setTelefone(req.body.telefone);
 		tib.setComite(req.body.comite);
 		tib.setDelegacao(req.body.delegacao);
 		tib.setJustificativa(req.body.justificativa);
@@ -103,6 +103,19 @@ app.post('/salvarTIB', function (req, res) {
 		console.log('Erro: ' + e.message);
 	}
 })
+
+app.post('/gerenciarTib', function(req, res){
+	var t = new Tib();
+	if (req.body.acao == 'Excluir') {
+		t.setNome(req.body.nome);
+		t.deletar(con);
+	} else {
+		t.setNome(req.body.nome);
+		t.consultarChave(con, function(result){
+			res.render('TIB/form.ejs', {tib: result});
+		});
+	}	
+});
 //////////////////////// FUNÇÕES MIFRES //////////////////////
 
 app.get('/mifres', function (req, res) {
