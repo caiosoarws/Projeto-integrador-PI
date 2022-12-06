@@ -81,27 +81,13 @@ create table eventos(
 	delegacao varchar(100) NOT NULL,
 	justificativa varchar(100) NOT NULL,
 	comites_id int not null,
+	tipo enum("tib","mifres"),
+	ano varchar(2),
+	escolas_id int,
 	PRIMARY KEY(id),
-    FOREIGN KEY(comites_id) REFERENCES comites(comites_id)
+    FOREIGN KEY(comites_id) REFERENCES comites(comites_id),
+	FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id)
 );
-
-create table mifres(
-	id int auto_increment,
-	escolas_id int not null, 
-	ano varchar(2) not null,
-	evento_id int not null,
-	PRIMARY KEY (id),
-	FOREIGN KEY(escolas_id) REFERENCES escolas(escolas_id),
-	FOREIGN KEY(evento_id) REFERENCES eventos(id)
-)
-
-create table tib(       
-	id int auto_increment,
-	evento_id int not null,
-	PRIMARY KEY (id),
-	FOREIGN KEY(evento_id) REFERENCES eventos(id)
-)
-
 
 create table alunosMIFRES (
 	alunos_id int auto_increment,

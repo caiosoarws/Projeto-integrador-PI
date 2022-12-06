@@ -245,57 +245,57 @@
 </section>
     
     <section id = "TIBcadastro">
-        <h2>CADASTROS</h2>
+        <h2>Cadastros</h2>
         <hr><br>
-        
-        <form action = "filtrarAlunoMifres" method = "post">
-            <label for="nome"><p>Nome (use % como caracter coringa)</p></label>
-            <input type="text" name="pesquisa" id="pesquisa" size="30">
-            <input type="submit" class = "btn filtro" id = "filtrar" name="filtrar"><br><br>
-        </form>
-            <form action="excluirAlunoTIB">
-            <input type="submit" class = "button" type = "reset" id="Excluir" name = "Excluir">Excluir</button>
-        </form>
 
-        <input type="submit" class = "button" id = "Atualizar" name="Atualizar">Atualizar</a>
-        
-        <a href="/formMifres">Novo Aluno(a)!</a> &nbsp;
-
-        <!-- 
-            MUDAR
-              |
-              |
-              V
-         -->
-        <table id = "tabelinha">
-            <tr>
-                <th>Nome</th>
-                <th>Escola</th>
-                <th>Ano</th>
-                <th>Telefone</th>
+        <form action="/salvarTIB" method="post">
+	
+            <th>Nome</th>
+                <th>Contato</th>
                 <th>Comitê</th>
-                <th>Delegações</th>
-            </tr>
-            <% mifres.forEach((mf, index) => { %>
-                <tr>
-                    <td><%= mf.nome %></td>
-                    <td><%= mf.escola %></td>
-                    <td><%= mf.ano %></td>
-                    <td><%= mf.telefone %></td>
-                    <td><%= mf.comite %></td>
-                    <td><%= mf.delegacao %></td>
-                </tr>
-            <% }) %>
-        </table>
+                <th>Delegação</th>
+                <th>Justificativa</th>
 
-        <!-- 
-             ^
-             |
-             |
-            MUDAR
-         -->
-    </section>
-    
+			<label for="nome">Nome:</label><br>
+			<input type="text" name="nome" id="nome" size="30"><br><br>
+			
+			<label for="telefone">Contato:</label><br>
+			<input type="text" name="telefone" id="telefone" size="20"><br><br>
+
+            <label for="comite"></label>
+            <select id = "comite" name="comite">
+                <option value = "#">Selecione o seu comitê:</option>
+                <option value = "1">CDH</option>
+                <option value = "2">CDUDH</option>
+                <option value = "3">CSNU</option>
+                <option value = "4">OEA</option>
+                <option value = "5">OMS</option>
+                <option value = "6">AC</option>
+                <option value = "7">Gabinete</option>
+            </select>
+
+            <label for="escola">Escola:</label><br>
+            <input type="text" name="escola" id="escola" size="20"><br><br>
+            
+                  <label for="ano"></label>
+                  <select id = "ano" name="ano">
+                      <option value = "#">Selecione seu ano:</option>
+                      <option value = "ano1">1° ano</option>
+                      <option value = "ano2">2° ano</option>
+                      <option value = "ano3">3° ano</option>
+                      <option value = "ano4">4° ano</option>
+                  </select>
+                  <br>
+            <label for="delegacao">Escolha 3 delegações em ordem prioritária:</label><br>
+            <textarea name="delegacao" id="delegacao" cols="100" rows="3"></textarea>
+
+            <label for="justificativa">Justifique porque escolheu tais delegações:</label><br>
+			<textarea name="justificativa" id="justificativa" cols="100" rows="3"></textarea>
+
+			<input type="submit" name="salvar" value="Salvar">
+			<input type="reset" name="limpar" value="Limpar">
+		</form>
+
     <footer id="footer" class="footer bg-overlay">
       <div class="footer-main">
           <div class="container">
@@ -337,27 +337,27 @@
   </div>
   </footer>
   
-  <!-- initialize jQuery Library -->
-  <script src="plugins/jQuery/jquery.min.js"></script>
-  <!-- Bootstrap jQuery -->
-  <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
-  <!-- Slick Carousel -->
-  <script src="plugins/slick/slick.min.js"></script>
-  <script src="plugins/slick/slick-animation.min.js"></script>
-  <!-- Color box -->
-  <script src="plugins/colorbox/jquery.colorbox.js"></script>
-  <!-- shuffle -->
-  <script src="plugins/shuffle/shuffle.min.js" defer></script>
+    <!-- initialize jQuery Library -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap jQuery -->
+    <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
+    <!-- Slick Carousel -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <script src="plugins/slick/slick-animation.min.js"></script>
+    <!-- Color box -->
+    <script src="plugins/colorbox/jquery.colorbox.js"></script>
+    <!-- shuffle -->
+    <script src="plugins/shuffle/shuffle.min.js" defer></script>
   
-  <!-- Google Map API Key-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
-  <!-- Google Map Plugin-->
-  <script src="plugins/google-map/map.js" defer></script>
+    <!-- Google Map API Key-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+    <!-- Google Map Plugin-->
+    <script src="plugins/google-map/map.js" defer></script>
   
-  <!-- Template custom -->
-  <script src="js/script.js"></script>
+    <!-- Template custom -->
+    <script src="js/script.js"></script>
   
-  </div><!-- Body inner end -->
-  </body>
+    </div><!-- Body inner end -->
+    </body>
   
-  </html>
+    </html>
