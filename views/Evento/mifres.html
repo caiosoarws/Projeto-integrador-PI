@@ -133,7 +133,7 @@
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">TIB<i class="fa fa-angle-down"></i></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="/tib">Conheça o TIB!</a></li>
-              <li><a href="/inscricaoTIB">Inscreva-se no TIB!</a></li>
+              <li><a href="/inscricao">Inscreva-se no TIB!</a></li>
             </ul>
           </li>
               
@@ -141,7 +141,7 @@
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">MIFRES<i class="fa fa-angle-down"></i></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="/mifres">Conheça o MIFRes!</a></li>
-              <li><a href="/inscricaoMIFRES">Inscreva-se no MIFRes!</a></li>
+              <li><a href="/inscricao">Inscreva-se no MIFRes!</a></li>
               <li><a href="/comites">Registre um novo comitê!</a></li>
             </ul>
           </li>
@@ -243,121 +243,142 @@
     </div>
   </div><!-- fim do container -->
 </section>
-    
-    <section id = "TIBcadastro">
-        <h2>Cadastros</h2>
-        <hr><br>
 
-        <form action="/salvarTIB" method="post">
-	
-            <th>Nome</th>
-                <th>Contato</th>
-                <th>Comitê</th>
-                <th>Delegação</th>
-                <th>Justificativa</th>
-
-			<label for="nome">Nome:</label><br>
-			<input type="text" name="nome" id="nome" size="30"><br><br>
-			
-			<label for="telefone">Contato:</label><br>
-			<input type="text" name="telefone" id="telefone" size="20"><br><br>
-
-            <label for="comite"></label>
-            <select id = "comite" name="comite">
-                <option value = "#">Selecione o seu comitê:</option>
-                <option value = "1">CDH</option>
-                <option value = "2">CDUDH</option>
-                <option value = "3">CSNU</option>
-                <option value = "4">OEA</option>
-                <option value = "5">OMS</option>
-                <option value = "6">AC</option>
-                <option value = "7">Gabinete</option>
-            </select>
-
-            <label for="escola">Escola:</label><br>
-            <input type="text" name="escola" id="escola" size="20"><br><br>
-            
-                  <label for="ano"></label>
-                  <select id = "ano" name="ano">
-                      <option value = "#">Selecione seu ano:</option>
-                      <option value = "ano1">1° ano</option>
-                      <option value = "ano2">2° ano</option>
-                      <option value = "ano3">3° ano</option>
-                      <option value = "ano4">4° ano</option>
-                  </select>
-                  <br>
-            <label for="delegacao">Escolha 3 delegações em ordem prioritária:</label><br>
-            <textarea name="delegacao" id="delegacao" cols="100" rows="3"></textarea>
-
-            <label for="justificativa">Justifique porque escolheu tais delegações:</label><br>
-			<textarea name="justificativa" id="justificativa" cols="100" rows="3"></textarea>
-
-			<input type="submit" name="salvar" value="Salvar">
-			<input type="reset" name="limpar" value="Limpar">
-		</form>
-
-    <footer id="footer" class="footer bg-overlay">
-      <div class="footer-main">
-          <div class="container">
-              <div class="row justify-content-between">
-                  <div class="col-lg-4 col-md-6 footer-widget footer-about">
-                      <h3 class="widget-title">Sobre nós</h3>
-                      <img loading="lazy" width="200px" class="footer-logo" src="images/footer-logo.png" alt="Constra">
-                      <p style="text-align:justify; font-size: 16px;">
-                          Sinta-se a vontade para nos acompanhar em nossas redes sociais e mandar sugestões ou 
-                          perguntas através dos nosso canais de comunicção!
-                      </p>
-  
-                      <div class="footer-social">
-                          <ul>
-                              <li><a href="https://twitter.com/mifres_criifrs" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-                              <li><a href="https://instagram.com/criifrs" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-                              <li><a href="mailto:criif@restinga.ifrs.edu.br" aria-label="email"><i class="fa-solid fa-envelope"></i></a></li>
-                          </ul>
-                      </div>
-                  </div>
-  
-          <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
-              <h3 class="widget-title">Recrutagem</h3>
-              <div class="recrutagem">
-                  <p style="text-align:justify;font-size:16px">
-                      A recrutagem do clube é realizada durante os Treinamentos Internos Básicos (TIB), esses que ocorrem mensalmente.
-                  </p>
-              </div>
+    <section id = "ResumoMIFRes">
+        <h1>CONHEÇA O MODELO INSTITUTO FEDERAL - RESTINGA (MIFRES)!</h1>
+        <br>
+        <p id="corners1">&nbsp;&nbsp; &nbsp;  O nosso projeto tem o intuito de criar um site para o Clube de Relações Internacionais do IFRS - Campus Restinga (CRI). 
+            Visto que o mesmo é um órgão do campus que realiza eventos periodicamente e não possui um site próprio, o objetivo é que, após a conclusão do projeto, 
+            o clube passe a utilizar o site para realizar suas atividades de recrutamento, divulgação e publicação de materiais das simulações (tais como jornais, guias, etc...).</p>
+        </section>
+        
+        <section id="BotaoInscricaoMIFRES">
+            <div id="corners2">
+                <h1>Inscreva-se!</h1>
+                <br>
+                <p>Clique no botão abaixo e preencha as informações na tabela.</p>
+                <br>
+                <center><a class="linkMIFRES" href = "/inscricao">Clique aqui</a></center>
             </div>
-  
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
-              <h3 class="widget-title">+ Informações</h3>
-              <ul class="list-arrow">
-                  <li><a href="/index">Retornar</a></li>
-              </ul>
+        </section>
+        
+        <!-- STYLE DAS CAIXINHAS COLORIDAS (FUNDO DO TEXTO)-->
+        <style>
+        #ResumoMIFRes h1 {
+            font-size: 25px;
+            color: #000;
+            padding-top: 4%;
+            margin: auto;
+            text-align: center;
+        }
+        #corners1 {
+            border-radius: 50px;
+            background:white;
+            padding: 20px;
+            width: 900px;
+            height: 125px;
+            margin: auto;
+            text-align: justify;
+            font-size: 20px;
+            padding-bottom: 4%;
+            margin-bottom:3%;
+        }
+        #BotaoInscricaoMIFRES h1 {
+            font-size: 25px;
+            color: #000;
+            margin: auto;
+            text-align: center;
+        }
+        #BotaoInscricaoMIFRES p {
+            font-size: 20px;
+            color: #000;
+            margin: auto;
+            text-align: center;
+        }
+        #corners2 {
+            border-radius: 50px;
+            background:white;
+            padding: 20px;
+            width: 400px;
+            height: 150px;
+            margin: auto;
+            text-align: justify;
+            font-size: 20px;
+        }
+        .linkMIFRES {
+            border-radius: 10px;
+            text-decoration: none;
+            background-color: #243B2E;
+            color: white;
+            position: relative;
+            margin: auto;
+            padding: 1%;
+        }
+        .linkMIFRES:hover {background-color: #425349;}
+        </style>
+
+<footer id="footer" class="footer bg-overlay">
+    <div class="footer-main">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-4 col-md-6 footer-widget footer-about">
+                    <h3 class="widget-title">Sobre nós</h3>
+                    <img loading="lazy" width="200px" class="footer-logo" src="images/footer-logo.png" alt="Constra">
+                    <p style="text-align:justify; font-size: 16px;">
+                        Sinta-se a vontade para nos acompanhar em nossas redes sociais e mandar sugestões ou 
+                        perguntas através dos nosso canais de comunicção!
+                    </p>
+
+                    <div class="footer-social">
+                        <ul>
+                            <li><a href="https://twitter.com/mifres_criifrs" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="https://instagram.com/criifrs" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="mailto:criif@restinga.ifrs.edu.br" aria-label="email"><i class="fa-solid fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+        <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
+            <h3 class="widget-title">Recrutagem</h3>
+            <div class="recrutagem">
+                <p style="text-align:justify;font-size:16px">
+                    A recrutagem do clube é realizada durante os Treinamentos Internos Básicos (TIB), esses que ocorrem mensalmente.
+                </p>
+            </div>
           </div>
-      </div>
-  </div>
-  </div>
-  </footer>
-  
-    <!-- initialize jQuery Library -->
-    <script src="plugins/jQuery/jquery.min.js"></script>
-    <!-- Bootstrap jQuery -->
-    <script src="plugins/bootstrap/bootstrap.min.js" defer></script>
-    <!-- Slick Carousel -->
-    <script src="plugins/slick/slick.min.js"></script>
-    <script src="plugins/slick/slick-animation.min.js"></script>
-    <!-- Color box -->
-    <script src="plugins/colorbox/jquery.colorbox.js"></script>
-    <!-- shuffle -->
-    <script src="plugins/shuffle/shuffle.min.js" defer></script>
-  
-    <!-- Google Map API Key-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
-    <!-- Google Map Plugin-->
-    <script src="plugins/google-map/map.js" defer></script>
-  
-    <!-- Template custom -->
-    <script src="js/script.js"></script>
-  
-    </div><!-- Body inner end -->
-    </body>
-  
-    </html>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+            <h3 class="widget-title">+ Informações</h3>
+            <ul class="list-arrow">
+                <li><a href="/index">Retornar</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+</footer>
+
+<!-- initialize jQuery Library -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap jQuery -->
+<script src="plugins/bootstrap/bootstrap.min.js" defer></script>
+<!-- Slick Carousel -->
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/slick/slick-animation.min.js"></script>
+<!-- Color box -->
+<script src="plugins/colorbox/jquery.colorbox.js"></script>
+<!-- shuffle -->
+<script src="plugins/shuffle/shuffle.min.js" defer></script>
+
+<!-- Google Map API Key-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+<!-- Google Map Plugin-->
+<script src="plugins/google-map/map.js" defer></script>
+
+<!-- Template custom -->
+<script src="js/script.js"></script>
+
+</div><!-- Body inner end -->
+</body>
+
+</html>

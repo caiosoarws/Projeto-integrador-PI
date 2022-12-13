@@ -48,122 +48,71 @@ app.get('/comites', function (req, res) {
 app.get('/voltar', function (req, res) {
 	res.sendFile(__dirname + '/views/TIB.html');
 });
+///////////////////// Evento funções //////////////////////////
 
-
-/////////////////////////// FUNÇÕES TIB////////////////////////////
-
-app.get('/tib', function (req, res) {
-	res.sendFile(__dirname + '/views/TIB/tib.html');
+app.get('/form', function (req, res) {
+	res.sendFile(__dirname + '/views/Evento/form.html');
 });
 
-app.get('/inscricaoTIB', function (req, res) {
+app.get('/inscricao', function (req, res) {
 
-	var t = new Tib();
-	t.listar(con, function (result) {
-		res.render('TIB/lista.ejs', { tib: result });
+	var ev = new Evento();
+	ev.listar(con, function (result) {
+		res.render('Evento/lista.ejs', { evento: result });
 	});
 
 });
 
-app.get('/formTIB', function (req, res) {
-	res.sendFile(__dirname + '/views/TIB/formTIB.html');
-});
+app.post('/filtrarAluno', function (req, res) {
+	var ev = new Evento();
+	ev.setNome(req.body.nome);
 
-app.post('/filtrarAlunoTIB', function (req, res) {
-	var tib = new Tib();
-	tib.setNome(req.body.nome);
-
-	if (tib.getNome() == '') {
-		tib.setNome('%');
+	if (ev.getNome() == '') {
+		ev.setNome('%');
 	}
 
-	tib.pesquisar(con, function (result) {
-		res.render('views/TIB/lista.ejs', { tib: result });
+	ev.pesquisar(con, function (result) {
+		res.render('views/Evento/lista.ejs', { evento: result });
 	});
 });
 
-app.get('/formTIB', function (req, res) {
-	res.sendFile(__dirname + '/views/TIB/formTIB.html');
-});
-
-app.post('/salvarTIB', function (req, res) {
+app.post('/salvarEvento', function (req, res) {
 
 	try {
-		var tib = new Tib();
+		var ev = new Evento();
 
-		tib.setNome(req.body.nome);
-		tib.setTelefone(req.body.telefone);
-		tib.setComite(req.body.comite);
-		tib.setDelegacao(req.body.delegacao);
-		tib.setJustificativa(req.body.justificativa);
+		ev.setNome(req.body.nome);
+		ev.setEscolas(req.body.escola);
+		ev.setAno(req.body.ano);
+		ev.setTelefone(req.body.telefone);
+		ev.setComite(req.body.comite);
+		ev.setDelegacao(req.body.delegacao);
+		ev.setJustificativa(req.body.justificativa);
 
-		var retorno = tib.inserir(con);
+		var retorno = ev.inserir(con);
 		console.log('Aqui: ' + retorno);
 	} catch (e) {
 		console.log('Erro: ' + e.message);
 	}
-})
+});
 
-app.post('/gerenciarTib', function(req, res){
-	var t = new Tib();
+app.post('/gerenciarLista', function(req, res){
+	var ev = new Evento();
 	if (req.body.acao == 'Excluir') {
-		t.setNome(req.body.nome);
-		t.deletar(con);
+		ev.setNome(req.body.nome);
+		ev.deletar(con);
 	} else {
-		t.setNome(req.body.nome);
-		t.consultarChave(con, function(result){
-			res.render('TIB/form.ejs', {tib: result});
+		ev.setNome(req.body.nome);
+		ev.consultarChave(con, function(result){
+			res.render('Evento/form.ejs', {evento: result});
 		});
 	}	
 });
-//////////////////////// FUNÇÕES MIFRES //////////////////////
+
+app.get('/tib', function (req, res) {
+	res.sendFile(__dirname + '/views/Evento/tib.html');
+});
 
 app.get('/mifres', function (req, res) {
-	res.sendFile(__dirname + '/views/MIFRes/mifres.html');
+	res.sendFile(__dirname + '/views/Evento/mifres.html');
 });
-
-app.get('/inscricaoMIFRES', function (req, res) {
-
-	var mf = new Mifres();
-	mf.listar(con, function (result) {
-		res.render('MIFRes/lista.ejs', { mifres: result });
-	});
-
-});
-
-app.get('/formMifres', function (req, res) {
-	res.sendFile(__dirname + '/views/MIFRes/inscricaoMIFRES.html');
-});
-
-app.post('/filtrarAlunoMifres', function (req, res) {
-	var mf = new Mifres();
-	mf.setNome(req.body.nome);
-
-	if (mf.getNome() == '') {
-		mf.setNome('%');
-	}
-
-	mf.pesquisar(con, function (result) {
-		res.render('views/MIFRes/lista.ejs', { mifres: result });
-	});
-});
-
-app.post('/salvarMifres', function (req, res) {
-
-	try {
-		var mf = new Mifres();
-
-		mf.setNome(req.body.nome);
-		mf.setEscolas(req.body.escola);
-		mf.setAno(req.body.ano);
-		mf.setTelefone(req.body.telefone);
-		mf.setComite(req.body.comite);
-		mf.setDelegacao(req.body.delegacao);
-		mf.setJustificativa(req.body.justificativa);
-
-		var retorno = mf.inserir(con);
-		console.log('Aqui: ' + retorno);
-	} catch (e) {
-		console.log('Erro: ' + e.message);
-	}
-})
