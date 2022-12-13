@@ -58,7 +58,7 @@ app.get('/inscricao', function (req, res) {
 
 	var ev = new Evento();
 	ev.listar(con, function (result) {
-		res.render('Evento/lista.ejs', { evento: result });
+		res.render('/cri/Projeto-integrador-PI/views/Evento/lista.ejs', { evento: result });
 	});
 
 });
