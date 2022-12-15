@@ -295,7 +295,8 @@
             function escolha() {
 
                  choose = document.getElementById("choose").value
-
+                 module.exports = choose;
+                 
                 if (choose == "tib") {
 
                     document.getElementById("MifresCadastro").hidden = true;
@@ -311,7 +312,6 @@
                 }
             }
 
-            export default choose;
         </script>
         <section id="TIBcadastro" hidden>
 

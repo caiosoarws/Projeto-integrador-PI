@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var mysql = require('mysql');
-const Tib = require('./models/Eventos');
+const Eventos = require('./models/Eventos');
 var con = mysql.createConnection({
 	host: "localhost",
 	user: "root",
@@ -56,7 +56,7 @@ app.get('/form', function (req, res) {
 
 app.get('/inscricao', function (req, res) {
 
-	var ev = new Evento();
+	var ev = new Eventos();
 	ev.listar(con, function (result) {
 		res.render('Evento/lista.ejs', { evento: result });
 	});
@@ -64,7 +64,7 @@ app.get('/inscricao', function (req, res) {
 });
 
 app.post('/filtrarAluno', function (req, res) {
-	var ev = new Evento();
+	var ev = new Eventos();
 	ev.setNome(req.body.nome);
 
 	if (ev.getNome() == '') {
@@ -79,7 +79,7 @@ app.post('/filtrarAluno', function (req, res) {
 app.post('/salvarEvento', function (req, res) {
 
 	try {
-		var ev = new Evento();
+		var ev = new Eventos();
 
 		ev.setNome(req.body.nome);
 		ev.setEscolas(req.body.escola);
@@ -97,7 +97,7 @@ app.post('/salvarEvento', function (req, res) {
 });
 
 app.post('/gerenciarLista', function(req, res){
-	var ev = new Evento();
+	var ev = new Eventos();
 	if (req.body.acao == 'Excluir') {
 		ev.setNome(req.body.nome);
 		ev.deletar(con);
@@ -107,6 +107,25 @@ app.post('/gerenciarLista', function(req, res){
 			res.render('Evento/form.ejs', {evento: result});
 		});
 	}	
+});
+
+app.post('/atualizarEvento', function(req, res){
+	try {
+		var ev = new Eventos();
+		
+		ev.setNome(req.body.nome);
+		ev.setEscolas(req.body.escola);
+		ev.setAno(req.body.ano);
+		ev.setTelefone(req.body.telefone);
+		ev.setComite(req.body.comite);
+		ev.setDelegacao(req.body.delegacao);
+		ev.setJustificativa(req.body.justificativa)
+		
+		var retorno = ev.atualizar(con);
+		console.log('Aqui: ' + retorno);
+	} catch (e) {
+		console.log('Erro: '+e.message);
+	}
 });
 
 app.get('/tib', function (req, res) {
