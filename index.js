@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var mysql = require('mysql');
-const Tib = require('./models/TIB');
+const Tib = require('./models/Eventos');
 var con = mysql.createConnection({
 	host: "localhost",
 	user: "root",
