@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 
@@ -12,7 +11,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var mysql = require('mysql');
-const Eventos = require('./models/Eventos');
+const Eventos = require('./models/TIB');
 var con = mysql.createConnection({
 	host: "localhost",
 	user: "root",
@@ -56,9 +55,9 @@ app.get('/form', function (req, res) {
 
 app.get('/inscricao', function (req, res) {
 
-	var ev = new Eventos();
+	var ev = new Evento();
 	ev.listar(con, function (result) {
-		res.render('Evento/lista.ejs', { evento: result });
+		res.render('/cri/Projeto-integrador-PI/views/Evento/lista.ejs', { evento: result });
 	});
 
 });

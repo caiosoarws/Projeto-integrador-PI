@@ -74,7 +74,11 @@ create table alunos (
 );
 
 
+<<<<<<< HEAD
 create table eventos(
+=======
+create table evento(
+>>>>>>> 9f09ed88448feb84b383c861ddbdfa7ccd20a5e2
 	id int auto_increment,
 	nome varchar(100) NOT NULL,
 	telefone int(9) NOT NULL,
